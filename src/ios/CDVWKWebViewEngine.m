@@ -254,8 +254,7 @@ static void * KVOContext = &KVOContext;
      wkWebView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = [settings cordovaBoolSettingForKey:@"JavaScriptCanOpenWindowsAutomatically" default:NO];
      */
 
-    self.showsVerticalScrollIndicator = NO;
-    self.showsHorizontalScrollIndicator = NO;
+     
     // By default, DisallowOverscroll is false (thus bounce is allowed)
     BOOL bounceAllowed = !([settings cordovaBoolSettingForKey:@"DisallowOverscroll" defaultValue:NO]);
          bounceAllowed=false;
@@ -505,8 +504,11 @@ static void * KVOContext = &KVOContext;
  @implementation UIScrollView (NoBounce)
 - (void)didMoveToWindow {
    [super didMoveToWindow];
-   self.bounces = NO;
  
+
+   self.bounces = NO;
+   self.showsVerticalScrollIndicator = NO;
+   self.showsHorizontalScrollIndicator = NO;
 }
 
 
