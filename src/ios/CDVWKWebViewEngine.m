@@ -505,4 +505,12 @@ static void * KVOContext = &KVOContext;
    [super didMoveToWindow];
    self.bounces = NO;
 }
+
+for (id subview in self.myWebView.subviews) {
+    if ([[subview class] isSubclassOfClass: [UIScrollView class]]) {
+        ((UIScrollView *)subview).bounces = NO; 
+        ((UIScrollView *)subview).showsVerticalScrollIndicator = NO;    
+        ((UIScrollView *)subview).showsHorizontalScrollIndicator = NO;  
+    }
+}
 @end
