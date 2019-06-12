@@ -504,8 +504,9 @@ static void * KVOContext = &KVOContext;
 - (void)didMoveToWindow {
    [super didMoveToWindow];
    self.bounces = NO;
+ [wkWebView.scrollView setShowsHorizontalScrollIndicator:NO]
+[wkWebView.scrollView setShowsVerticalScrollIndicator:NO]
 }
 
-[self.instanceWKWebView.scrollView setShowsHorizontalScrollIndicator:NO]
-[self.instanceWKWebView.scrollView setShowsVerticalScrollIndicator:NO]
+
 @end
